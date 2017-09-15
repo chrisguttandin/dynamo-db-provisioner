@@ -1,7 +1,5 @@
 # dynamo-db-provisioner
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/chrisguttandin/dynamo-db-provisioner.svg)](https://greenkeeper.io/)
-
 **A lightweight and promise-based wrapper of the AWS SDK to create and delete tables.**
 
 [![tests](https://img.shields.io/travis/chrisguttandin/dynamo-db-provisioner/master.svg?style=flat-square)](https://travis-ci.org/chrisguttandin/dynamo-db-provisioner)
