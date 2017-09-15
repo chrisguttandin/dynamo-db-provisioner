@@ -1,0 +1,61 @@
+{
+  "author": "Christoph Guttandin",
+  "bugs": {
+    "url": "https://github.com/chrisguttandin/dynamo-db-provisioner/issues"
+  },
+  "dependencies": {
+    "aws-client-factories": "^4.0.1",
+    "aws-sdk": "^2.116.0",
+    "tslib": "^1.7.1"
+  },
+  "description": "A lightweight and promise-based wrapper of the AWS SDK to create and delete tables.",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "eslint": "^4.6.1",
+    "eslint-config-holy-grail": "^22.0.0",
+    "greenkeeper-lockfile": "^1.9.0",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^7.0.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-mocha-test": "^0.13.0",
+    "grunt-sh": "^0.2.0",
+    "grunt-tslint": "^5.0.0",
+    "gruntify-eslint": "^4.0.0",
+    "husky": "^0.14.3",
+    "load-grunt-config": "^0.19.1",
+    "mocha": "^3.5.3",
+    "sinon": "^3.2.1",
+    "sinon-chai": "^2.13.0",
+    "tsconfig-holy-grail": "^2.4.2",
+    "tslint": "^5.7.0",
+    "tslint-config-holy-grail": "^13.0.0",
+    "typescript": "^2.5.2"
+  },
+  "engines": {
+    "node": ">=6.11.2"
+  },
+  "files": [
+    "build/node/",
+    "build/es2015/",
+    "src/"
+  ],
+  "homepage": "https://github.com/chrisguttandin/dynamo-db-provisioner",
+  "license": "MIT",
+  "main": "build/node/module.js",
+  "name": "dynamo-db-provisioner",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrisguttandin/dynamo-db-provisioner.git"
+  },
+  "scripts": {
+    "precommit": "grunt lint",
+    "prepublishOnly": "grunt build",
+    "test": "grunt lint && grunt test"
+  },
+  "types": "build/es2015/module.d.ts",
+  "version": "1.0.0"
+}
