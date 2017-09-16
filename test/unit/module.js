@@ -1,5 +1,5 @@
 import { createTable, deleteTable } from '../../build/node/module';
-import AWS from 'aws-sdk';
+import { dynamoDbClientFactory } from 'aws-client-factories';
 import { stub } from 'sinon';
 
 describe('dynamo-db-provisioner', () => {
@@ -7,11 +7,10 @@ describe('dynamo-db-provisioner', () => {
     let dynamoDbClient;
 
     beforeEach(() => {
-        AWS.DynamoDB = stub();
+        dynamoDbClientFactory.create = stub();
         dynamoDbClient = { createTable: stub(), deleteTable: stub() };
 
-        AWS.DynamoDB.returns(dynamoDbClient);
-
+        dynamoDbClientFactory.create.returns(dynamoDbClient);
     });
 
     describe('createTable()', () => {
