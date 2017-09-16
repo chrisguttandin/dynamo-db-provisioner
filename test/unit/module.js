@@ -30,6 +30,7 @@ describe('dynamo-db-provisioner', () => {
             it('should call createTable() with the given parameters', () => {
                 createTable({ attributeDefinitions, keySchema, tableName });
 
+                expect(dynamoDbClient.createTable).to.have.been.calledOnce;
                 expect(dynamoDbClient.createTable).to.have.been.calledWith({
                     AttributeDefinitions: attributeDefinitions,
                     KeySchema: keySchema,
@@ -53,6 +54,7 @@ describe('dynamo-db-provisioner', () => {
             it('should call createTable() with the given parameters', () => {
                 createTable({ attributeDefinitions, globalSecondaryIndexes, keySchema, tableName });
 
+                expect(dynamoDbClient.createTable).to.have.been.calledOnce;
                 expect(dynamoDbClient.createTable).to.have.been.calledWith({
                     AttributeDefinitions: attributeDefinitions,
                     GlobalSecondaryIndexes: [
@@ -116,6 +118,7 @@ describe('dynamo-db-provisioner', () => {
         it('should call deleteTable() with the given tableName', () => {
             deleteTable(tableName);
 
+            expect(dynamoDbClient.deleteTable).to.have.been.calledOnce;
             expect(dynamoDbClient.deleteTable).to.have.been.calledWith({
                 TableName: tableName
             });
