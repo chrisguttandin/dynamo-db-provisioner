@@ -4,7 +4,7 @@
     "url": "https://github.com/chrisguttandin/dynamo-db-provisioner/issues"
   },
   "dependencies": {
-    "aws-client-factories": "^4.0.18",
+    "aws-client-factories": "^4.0.19",
     "aws-sdk": "^2.128.0",
     "tslib": "^1.7.1"
   },
