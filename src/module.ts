@@ -1,8 +1,8 @@
 import { dynamoDbClientFactory } from 'aws-client-factories';
-import { DynamoDB } from 'aws-sdk';
+import { DynamoDB } from 'aws-sdk';
 import { ITableDefinition } from './interfaces';
 
-export const createTable = ({ attributeDefinitions, globalSecondaryIndexes, keySchema, tableName }: ITableDefinition): Promise<void> => {
+export const createTable = ({ attributeDefinitions, globalSecondaryIndexes, keySchema, tableName }: ITableDefinition): Promise<void> => {
     const dynamoDbClient = dynamoDbClientFactory.create({
         params: {
             TableName: tableName
