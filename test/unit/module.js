@@ -72,6 +72,18 @@ describe('dynamo-db-provisioner', () => {
 
         });
 
+        describe('with an existing table', () => {
+
+            beforeEach(() => {
+                dynamoDbClient.createTable.callsArgWith(1, { code: 'ResourceInUseException' });
+            });
+
+            it('should return a resolving promise', () => {
+                return createTable({ attributeDefinitions, keySchema, tableName });
+            });
+
+        });
+
         describe('with a successfully created table', () => {
 
             beforeEach(() => {
@@ -122,6 +134,18 @@ describe('dynamo-db-provisioner', () => {
             expect(dynamoDbClient.deleteTable).to.have.been.calledWith({
                 TableName: tableName
             });
+        });
+
+        describe('with a missing table', () => {
+
+            beforeEach(() => {
+                dynamoDbClient.deleteTable.callsArgWith(1, { code: 'ResourceNotFoundException' });
+            });
+
+            it('should return a resolving promise', () => {
+                return deleteTable(tableName);
+            });
+
         });
 
         describe('with a successfully deleted table', () => {

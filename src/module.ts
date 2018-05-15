@@ -53,7 +53,7 @@ export const deleteTable = (tableName: string): Promise<void> => {
             // @todo Specifying the tableName again is redudant, but the type definition currently requires it.
             TableName: tableName
         }, (err) => {
-            if (err === null) {
+            if (err === null || err.code === 'ResourceNotFoundException') {
                 resolve();
             } else {
                 reject(err);
