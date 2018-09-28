@@ -52,6 +52,12 @@
     "src/"
   ],
   "homepage": "https://github.com/chrisguttandin/dynamo-db-provisioner",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint --edit --extends @commitlint/config-angular",
+      "pre-commit": "grunt lint"
+    }
+  },
   "license": "MIT",
   "main": "build/node/module.js",
   "name": "dynamo-db-provisioner",
@@ -60,8 +66,6 @@
     "url": "https://github.com/chrisguttandin/dynamo-db-provisioner.git"
   },
   "scripts": {
-    "commitmsg": "commitlint --edit --extends @commitlint/config-angular",
-    "precommit": "grunt lint",
     "prepublishOnly": "grunt build",
     "test": "grunt lint && grunt test"
   },
