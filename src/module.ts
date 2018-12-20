@@ -19,7 +19,7 @@ export const createTable = ({ attributeDefinitions, globalSecondaryIndexes, keyS
         TableName: tableName
     };
 
-    if (globalSecondaryIndexes) {
+    if (globalSecondaryIndexes !== undefined) {
         params.GlobalSecondaryIndexes = globalSecondaryIndexes.map((globalSecondaryIndex) => {
             globalSecondaryIndex.ProvisionedThroughput = {
                 ReadCapacityUnits: 1,
