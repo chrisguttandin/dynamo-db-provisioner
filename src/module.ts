@@ -2,7 +2,7 @@ import { dynamoDbClientFactory } from 'aws-client-factories';
 import { DynamoDB } from 'aws-sdk';
 import { ITableDefinition } from './interfaces';
 
-export const createTable = ({ attributeDefinitions, globalSecondaryIndexes, keySchema, tableName }: ITableDefinition): Promise<void> => {
+export const createTable = ({ attributeDefinitions, globalSecondaryIndexes, keySchema, tableName }: ITableDefinition): Promise<void> => { // tslint:disable-line:invalid-void max-line-length
     const dynamoDbClient = dynamoDbClientFactory.create({
         params: {
             TableName: tableName
@@ -41,7 +41,7 @@ export const createTable = ({ attributeDefinitions, globalSecondaryIndexes, keyS
     });
 };
 
-export const deleteTable = (tableName: string): Promise<void> => {
+export const deleteTable = (tableName: string): Promise<void> => { // tslint:disable-line:invalid-void
     const dynamoDbClient = dynamoDbClientFactory.create({
         params: {
             TableName: tableName
