@@ -15,7 +15,7 @@
   },
   "description": "A lightweight and promise-based wrapper of the AWS SDK to create and delete tables.",
   "devDependencies": {
-    "@babel/core": "^7.6.0",
+    "@babel/core": "^7.6.2",
     "@babel/preset-env": "^7.6.0",
     "@babel/register": "^7.6.0",
     "@commitlint/cli": "^8.1.0",
