@@ -48,16 +48,19 @@ export const deleteTable = (tableName: string): Promise<void> => {
         }
     });
 
-    return new Promise ((resolve, reject) => {
-        dynamoDbClient.deleteTable({
-            // @todo Specifying the tableName again is redudant, but the type definition currently requires it.
-            TableName: tableName
-        }, (err) => {
-            if (err === null || err.code === 'ResourceNotFoundException') {
-                resolve();
-            } else {
-                reject(err);
+    return new Promise((resolve, reject) => {
+        dynamoDbClient.deleteTable(
+            {
+                // @todo Specifying the tableName again is redudant, but the type definition currently requires it.
+                TableName: tableName
+            },
+            (err) => {
+                if (err === null || err.code === 'ResourceNotFoundException') {
+                    resolve();
+                } else {
+                    reject(err);
+                }
             }
-        });
+        );
     });
 };

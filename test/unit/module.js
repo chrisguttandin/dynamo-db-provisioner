@@ -3,7 +3,6 @@ import { dynamoDbClientFactory } from 'aws-client-factories';
 import { stub } from 'sinon';
 
 describe('dynamo-db-provisioner', () => {
-
     let dynamoDbClient;
 
     beforeEach(() => {
@@ -14,7 +13,6 @@ describe('dynamo-db-provisioner', () => {
     });
 
     describe('createTable()', () => {
-
         let attributeDefinitions;
         let keySchema;
         let tableName;
@@ -26,7 +24,6 @@ describe('dynamo-db-provisioner', () => {
         });
 
         describe('without globalSecondaryIndexes', () => {
-
             it('should call createTable() with the given parameters', () => {
                 createTable({ attributeDefinitions, keySchema, tableName });
 
@@ -38,17 +35,13 @@ describe('dynamo-db-provisioner', () => {
                     TableName: tableName
                 });
             });
-
         });
 
         describe('with globalSecondaryIndexes', () => {
-
             let globalSecondaryIndexes;
 
             beforeEach(() => {
-                globalSecondaryIndexes = [
-                    { a: 'fake', global: 'secondary index' }
-                ];
+                globalSecondaryIndexes = [{ a: 'fake', global: 'secondary index' }];
             });
 
             it('should call createTable() with the given parameters', () => {
@@ -69,11 +62,9 @@ describe('dynamo-db-provisioner', () => {
                     TableName: tableName
                 });
             });
-
         });
 
         describe('with an existing table', () => {
-
             beforeEach(() => {
                 dynamoDbClient.createTable.callsArgWith(1, { code: 'ResourceInUseException' });
             });
@@ -81,11 +72,9 @@ describe('dynamo-db-provisioner', () => {
             it('should return a resolving promise', () => {
                 return createTable({ attributeDefinitions, keySchema, tableName });
             });
-
         });
 
         describe('with a successfully created table', () => {
-
             beforeEach(() => {
                 dynamoDbClient.createTable.callsArgWith(1, null);
             });
@@ -93,11 +82,9 @@ describe('dynamo-db-provisioner', () => {
             it('should return a resolving promise', () => {
                 return createTable({ attributeDefinitions, keySchema, tableName });
             });
-
         });
 
         describe('with a unsuccessfully created table', () => {
-
             let error;
 
             beforeEach(() => {
@@ -107,20 +94,16 @@ describe('dynamo-db-provisioner', () => {
             });
 
             it('should return a rejecting promise', (done) => {
-                createTable({ attributeDefinitions, keySchema, tableName })
-                    .catch((err) => {
-                        expect(err).to.equal(error);
+                createTable({ attributeDefinitions, keySchema, tableName }).catch((err) => {
+                    expect(err).to.equal(error);
 
-                        done();
-                    });
+                    done();
+                });
             });
-
         });
-
     });
 
     describe('deleteTable()', () => {
-
         let tableName;
 
         beforeEach(() => {
@@ -137,7 +120,6 @@ describe('dynamo-db-provisioner', () => {
         });
 
         describe('with a missing table', () => {
-
             beforeEach(() => {
                 dynamoDbClient.deleteTable.callsArgWith(1, { code: 'ResourceNotFoundException' });
             });
@@ -145,11 +127,9 @@ describe('dynamo-db-provisioner', () => {
             it('should return a resolving promise', () => {
                 return deleteTable(tableName);
             });
-
         });
 
         describe('with a successfully deleted table', () => {
-
             beforeEach(() => {
                 dynamoDbClient.deleteTable.callsArgWith(1, null);
             });
@@ -157,11 +137,9 @@ describe('dynamo-db-provisioner', () => {
             it('should return a resolving promise', () => {
                 return deleteTable(tableName);
             });
-
         });
 
         describe('with a unsuccessfully deleted table', () => {
-
             let error;
 
             beforeEach(() => {
@@ -171,16 +149,12 @@ describe('dynamo-db-provisioner', () => {
             });
 
             it('should return a rejecting promise', (done) => {
-                deleteTable(tableName)
-                    .catch((err) => {
-                        expect(err).to.equal(error);
+                deleteTable(tableName).catch((err) => {
+                    expect(err).to.equal(error);
 
-                        done();
-                    });
+                    done();
+                });
             });
-
         });
-
     });
-
 });

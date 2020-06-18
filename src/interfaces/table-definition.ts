@@ -1,7 +1,6 @@
 import { DynamoDB } from 'aws-sdk';
 
 export interface ITableDefinition {
-
     attributeDefinitions: DynamoDB.AttributeDefinition[];
 
     globalSecondaryIndexes?: DynamoDB.GlobalSecondaryIndex[];
@@ -9,5 +8,4 @@ export interface ITableDefinition {
     keySchema: DynamoDB.KeySchemaElement[];
 
     tableName: string;
-
 }
