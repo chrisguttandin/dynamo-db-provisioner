@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "aws-client-factories": "^10.0.31",
-        "aws-sdk": "^2.1423.0",
+        "aws-sdk": "^2.1424.0",
         "tslib": "^2.6.1"
     },
     "description": "A lightweight and promise-based wrapper of the AWS SDK to create and delete tables.",
