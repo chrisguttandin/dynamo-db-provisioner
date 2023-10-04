@@ -9,7 +9,7 @@
         }
     },
     "dependencies": {
-        "aws-client-factories": "^10.0.35",
+        "aws-client-factories": "^10.0.36",
         "aws-sdk": "^2.1468.0",
         "tslib": "^2.6.2"
     },
