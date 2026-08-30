@@ -51,6 +51,7 @@
     "license": "MIT",
     "main": "build/node/module.js",
     "name": "dynamo-db-provisioner",
+    "packageManager": "npm@12",
     "repository": {
         "type": "git",
         "url": "https://github.com/chrisguttandin/dynamo-db-provisioner.git"
